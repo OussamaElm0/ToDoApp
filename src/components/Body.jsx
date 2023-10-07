@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import Form from './Form';
+import React, { useState, useEffect } from "react";
+import Form from "./Form";
+import Tasks from "./Tasks";
 
 export default function Body() {
-    const [whatIDO, setWhatIDO] = useState({
-        do : "",
-        time: new Date().getTime(),
-        completed: false,
-    })
+  const [task, setTask] = useState({
+    task: "",
+    date: new Date().toDateString(),
+  });
+  const [tasksList, setTasksList] = useState([]);
 
-    const getValue = (input) => {
-        setWhatIDO( prev => {
-            return {...prev, do: input}
-        })
-    }
+  const getValue = (input) => {
+    setTask((prev) => {
+      return { ...prev, task: input };
+    });
+  };
+  useEffect(() => {
+    setTask(task);
+    setTasksList((prev) => [task,...prev]);
+    console.log(task);
+    console.log(tasksList);
+  }, [task]);
 
-    useEffect(()=> {
-        console.log(whatIDO);
-    },[whatIDO])
-
-    return (
-        <>
-            <Form 
-                handleClick={getValue}
-            />
-            <p>{whatIDO.do}</p>
-        </>
-    )
+  return (
+    <>
+      <Form handleClick={getValue} />
+        <Tasks tasks={tasksList} />
+    </>
+  );
 }

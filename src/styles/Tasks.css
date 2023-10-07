@@ -1,0 +1,11 @@
+.tasks-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 1%;
+}
+.task {
+    grid-template: span 1;
+    grid-row: span 1;
+}
