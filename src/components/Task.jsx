@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 export default function Task({ task, date }) {
-    const [statue, setStatue] = useState(false)
+    const [statut, setStatut] = useState(false)
 
     const handleChange = () => {
-        setStatue(prev => prev ? false : true)
+        setStatut(prev => prev ? false : true)
     }
     
     const textStyle = {
@@ -12,10 +12,10 @@ export default function Task({ task, date }) {
     }
     
   return (
-    <div className={`p-1  task ${statue ? "bg-success text-light" : "bg-danger text-dark"} rounded`}>
+    <div className={`p-1  task ${statut ? "bg-success text-light" : "bg-danger text-dark"} rounded`}>
       <p className="d-flex justify-content-evenly h2">
-        <p style={statue ? textStyle : null}>
-          {task == "" ? "Not found" : task}
+        <p style={statut ? textStyle : null}>
+          {task}
         </p>
         <input
           type="checkbox"
@@ -25,7 +25,7 @@ export default function Task({ task, date }) {
       </p>
       <p className="d-flex justify-content-around h6">
         {date}{" "}
-        <span className="">{statue ? "Completed" : "Not completed yet!"}</span>
+        <span className="">{statut ? "Completed" : "Not completed yet!"}</span>
       </p>
     </div>
   );

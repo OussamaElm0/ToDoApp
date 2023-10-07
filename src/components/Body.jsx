@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "./Form";
 import Tasks from "./Tasks";
+import Footer from "./Footer";
 
 export default function Body() {
   const [task, setTask] = useState({
@@ -16,15 +17,14 @@ export default function Body() {
   };
   useEffect(() => {
     setTask(task);
-    setTasksList((prev) => [task,...prev]);
-    console.log(task);
-    console.log(tasksList);
+    setTasksList((prev) => [...prev, task]);
   }, [task]);
 
   return (
     <>
       <Form handleClick={getValue} />
-        <Tasks tasks={tasksList} />
+      <Tasks tasks={tasksList} />
+      <Footer />
     </>
   );
 }
