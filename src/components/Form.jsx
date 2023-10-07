@@ -24,6 +24,7 @@ export default function Input({handleClick}) {
             onClick={(e) => {
               e.preventDefault();
               handleClick(inputValue);
+              setInputValue("")
             }}
           />
         </form>
