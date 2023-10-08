@@ -22,7 +22,7 @@ export default function Body() {
 
   const deleteTask = (id) => {
     const newTaskLiist = tasksList.filter((task) => {
-      return task.id != id;
+      return task.id !== id;
     });
     setTasksList(newTaskLiist)
   }
@@ -39,7 +39,7 @@ export default function Body() {
 
   useEffect(() => {
     setTask(task);
-    setTasksList((prev) => [...prev, task]);
+    setTasksList((prev) => [task, ...prev]);
   }, [task]);
 
   useEffect(() => {

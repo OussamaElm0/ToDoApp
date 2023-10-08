@@ -3,6 +3,18 @@ import React, {useState} from 'react';
 export default function Input({handleClick}) {
     const [inputValue, setInputValue] = useState("");
     const [dateValue, setDateValue] = useState("");
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    
+    var currentMonth =
+      currentDate.getMonth() + 1 < 10
+        ? `0${currentDate.getMonth() + 1}`
+        : currentDate.getMonth() + 1;
+
+    var currentDay =
+      currentDate.getDate() + 1 < 10
+        ? `0${currentDate.getDate()}`
+        : currentDate.getDate();
 
     return (
       <>
@@ -23,16 +35,19 @@ export default function Input({handleClick}) {
             />
           </div>
           <div className="input-group">
-            <label htmlFor="date" className="input-group-text border border-danger border-1">
+            <label
+              htmlFor="date"
+              className="input-group-text border border-danger border-1"
+            >
               Date
             </label>
-            <input 
-              type="date" 
-              value={dateValue} 
-              className="form-control border border-danger border-1" 
-              id='date'
-              onChange={({target: {value}}) => {
-                return setDateValue(value)
+            <input
+              type="date"
+              min={`${currentYear}-${currentMonth}-${currentDay}`}
+              className="form-control border border-danger border-1"
+              id="date"
+              onChange={({ target: { value } }) => {
+                return setDateValue(value);
               }}
             />
           </div>
@@ -42,9 +57,8 @@ export default function Input({handleClick}) {
             value="Add"
             onClick={(e) => {
               e.preventDefault();
-              handleClick(inputValue,dateValue);
+              handleClick(inputValue, dateValue);
               setInputValue("");
-
             }}
           />
         </form>
