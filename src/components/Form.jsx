@@ -21,7 +21,7 @@ export default function Input({handleClick}) {
         <form>
           <div className="input-group">
             <label
-              className="input-group-text border border-danger border-1"
+              className="input-group-text text-light bg-danger border border-danger border-1"
               htmlFor="task-text"
             >
               Task
@@ -29,7 +29,7 @@ export default function Input({handleClick}) {
             <input
               type="text"
               id="task-text"
-              className="form-control border border-danger border-1"
+              className="form-control  border border-danger border-1"
               value={inputValue}
               onChange={({ target: { value } }) => setInputValue(value)}
             />
@@ -37,7 +37,7 @@ export default function Input({handleClick}) {
           <div className="input-group">
             <label
               htmlFor="date"
-              className="input-group-text border border-danger border-1"
+              className="input-group-text text-light bg-danger border border-danger border-1"
             >
               Date
             </label>
@@ -53,7 +53,7 @@ export default function Input({handleClick}) {
           </div>
           <input
             type="submit"
-            className="form-control bg-danger text-light border border-0"
+            className="form-control bg-success text-light"
             value="Add"
             onClick={(e) => {
               e.preventDefault();
