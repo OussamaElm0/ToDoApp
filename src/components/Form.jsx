@@ -5,7 +5,7 @@ export default function Input({handleClick}) {
     const [dateValue, setDateValue] = useState("");
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
-    
+
     var currentMonth =
       currentDate.getMonth() + 1 < 10
         ? `0${currentDate.getMonth() + 1}`

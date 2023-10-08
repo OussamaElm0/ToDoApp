@@ -4,17 +4,21 @@ import Tasks from "./Tasks";
 import Footer from "./Footer";
 
 export default function Body() {
-  const [idT, setIdT] = useState(0)
+  const [idT, setIdT] = useState(0);
   const [task, setTask] = useState({
     id: idT,
     task: "",
-    date: null ,
+    date: null,
     statut: false,
   });
-  const [tasksList, setTasksList] = useState([]);
+  const [tasksList, setTasksList] = useState(() => {
+    const oldData = localStorage.getItem('tasks')
+    const data = JSON.parse(oldData)
+    return data || []
+  });
 
   const getValue = (input, dateG) => {
-    setIdT(idT + 1)
+    setIdT(idT + 1);
     setTask((prev) => {
       return { ...prev, task: input, id: idT, date: dateG };
     });
@@ -24,8 +28,8 @@ export default function Body() {
     const newTaskLiist = tasksList.filter((task) => {
       return task.id !== id;
     });
-    setTasksList(newTaskLiist)
-  }
+    setTasksList(newTaskLiist);
+  };
 
   const updateStatut = (id) => {
     const updatedTasksList = tasksList.map((task) => {
@@ -34,6 +38,7 @@ export default function Body() {
       }
       return task;
     });
+    console.log(`The id's task clicked is ${id}`);
     setTasksList(updatedTasksList);
   };
 
@@ -44,12 +49,18 @@ export default function Body() {
 
   useEffect(() => {
     setTasksList(tasksList);
-  },[tasksList])
+    localStorage.setItem('tasks',JSON.stringify(tasksList))
+    console.log(localStorage.tasks);
+  }, [tasksList]);
 
   return (
     <>
       <Form handleClick={getValue} />
-      <Tasks tasks={tasksList} deleteTask={deleteTask} updateStatut={updateStatut} />
+      <Tasks
+        tasks={tasksList}
+        deleteTask={deleteTask}
+        updateStatut={updateStatut}
+      />
       <Footer />
     </>
   );
