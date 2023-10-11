@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { AiOutlineDelete } from "react-icons/ai";
 
 export default function Task({ task, date, id, deleteTask, statut, updateStatut }) {
-    // const [statut, setStatut] = useState(false)
 
     const handleChange = () => {
-        // setStatut(prev => prev ? false : true)
         updateStatut(id, statut)
     }
     
@@ -16,7 +14,7 @@ export default function Task({ task, date, id, deleteTask, statut, updateStatut 
   return (
     <div
       className={`p-1  task ${
-        statut ? "bg-success text-light" : "bg-danger text-dark"
+        statut ? "completed" : "not-completed"
       } rounded`}
     >
       <p className="d-flex justify-content-evenly h2">

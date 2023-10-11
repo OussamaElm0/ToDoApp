@@ -8,4 +8,11 @@
 .task {
     grid-template: span 1;
     grid-row: span 1;
+    color: #fff;
+}
+.completed {
+    background-color: #38E54D;
+}
+.not-completed {
+    background-color: #FE0000;
 }

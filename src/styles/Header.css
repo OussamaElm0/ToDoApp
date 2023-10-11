@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Dancing+Script&family=Pixelify+Sans&family=Ubuntu:wght@500&family=Ysabeau+Infant:ital,wght@0,500;1,200&family=Ysabeau+Office:ital,wght@0,200;1,200;1,400&display=swap');
+
+header {
+    background-color: #5B0888;
+    color: #E5CFF7;
+    font-family: 'Belanosima', sans-serif, 'Dancing Script', cursive, 'Pixelify Sans', sans-serif, 'Ubuntu', sans-serif , 'Ysabeau Infant', sans-serif , 'Ysabeau Office', sans-serif;
+    text-align: center;
+}
+header span {
+    font-size: 1.5rem;
+}

@@ -38,7 +38,6 @@ export default function Body() {
       }
       return task;
     });
-    console.log(`The id's task clicked is ${id}`);
     setTasksList(updatedTasksList);
   };
 
@@ -50,7 +49,6 @@ export default function Body() {
   useEffect(() => {
     setTasksList(tasksList);
     localStorage.setItem('tasks',JSON.stringify(tasksList))
-    console.log(localStorage.tasks);
   }, [tasksList]);
 
   return (

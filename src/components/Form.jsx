@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../styles/Form.css';
 
 export default function Input({handleClick}) {
     const [inputValue, setInputValue] = useState("");
@@ -21,7 +22,7 @@ export default function Input({handleClick}) {
         <form>
           <div className="input-group">
             <label
-              className="input-group-text text-light bg-danger border border-danger border-1"
+              className="input-group-text change-color label"
               htmlFor="task-text"
             >
               Task
@@ -29,7 +30,7 @@ export default function Input({handleClick}) {
             <input
               type="text"
               id="task-text"
-              className="form-control  border border-danger border-1"
+              className="form-control "
               value={inputValue}
               onChange={({ target: { value } }) => setInputValue(value)}
             />
@@ -37,14 +38,14 @@ export default function Input({handleClick}) {
           <div className="input-group">
             <label
               htmlFor="date"
-              className="input-group-text text-light bg-danger border border-danger border-1"
+              className="input-group-text label change-color"
             >
-              Date
+              Délai
             </label>
             <input
               type="date"
               min={`${currentYear}-${currentMonth}-${currentDay}`}
-              className="form-control border border-danger border-1"
+              className="form-control "
               id="date"
               onChange={({ target: { value } }) => {
                 return setDateValue(value);
@@ -53,7 +54,7 @@ export default function Input({handleClick}) {
           </div>
           <input
             type="submit"
-            className="form-control bg-success text-light"
+            className="form-control  change-color"
             value="Add"
             onClick={(e) => {
               e.preventDefault();

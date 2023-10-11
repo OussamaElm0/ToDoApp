@@ -1,9 +1,10 @@
 import React from 'react';
+import '../styles/Header.css';
 
 export default function Header() {
     return (
-      <header className='header text-light h2 text-center p-2 bg-dark'>
-        TASK <span className='text-danger'>MANAGEMENT</span>
+      <header>
+        TASK <span>MANAGEMENT</span>
       </header>
     );
 }
