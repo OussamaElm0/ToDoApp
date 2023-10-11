@@ -15,7 +15,8 @@ form {
     font-family: 'Belanosima', sans-serif;
 }
 @media (max-width: 600px) {
-    label {
+    .label {
         width: 30%;
+        font-size: medium;
     }
 }
