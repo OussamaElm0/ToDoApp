@@ -42,12 +42,10 @@ export default function Body() {
   };
 
   useEffect(() => {
-    setTask(task);
     setTasksList((prev) => [task, ...prev]);
   }, [task]);
 
   useEffect(() => {
-    setTasksList(tasksList);
     localStorage.setItem('tasks',JSON.stringify(tasksList))
   }, [tasksList]);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AiOutlineDelete } from "react-icons/ai";
 
 export default function Task({ task, date, id, deleteTask, statut, updateStatut }) {

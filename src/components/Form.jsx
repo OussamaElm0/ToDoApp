@@ -27,13 +27,13 @@ export default function Input({handleClick}) {
             >
               Task
             </label>
-            <input
+            <textarea
               type="text"
               id="task-text"
               className="form-control "
               value={inputValue}
               onChange={({ target: { value } }) => setInputValue(value)}
-            />
+            ></textarea>
           </div>
           <div className="input-group">
             <label
