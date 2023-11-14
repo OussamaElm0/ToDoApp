@@ -4,6 +4,7 @@ import '../styles/Form.css';
 export default function Input({handleClick}) {
     const [inputValue, setInputValue] = useState("");
     const [dateValue, setDateValue] = useState("");
+    const [durationValue, setDurationValue] = useState(0);
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
 
@@ -52,13 +53,29 @@ export default function Input({handleClick}) {
               }}
             />
           </div>
+          <div className='input-group'>
+              <label 
+                className='input-group-text label change-color ' 
+                htmlFor='duration'
+              >
+                Duration (In hours)
+              </label>
+              <input 
+                type='number' 
+                id='duration' 
+                className='form-control' 
+                min='0'
+                value={durationValue}
+                onChange={e => setDurationValue(e.target.value)}
+              />
+          </div>
           <input
             type="submit"
             className="form-control  change-color"
             value="Add"
             onClick={(e) => {
               e.preventDefault();
-              handleClick(inputValue, dateValue);
+              handleClick(inputValue, dateValue, durationValue);
               setInputValue("");
             }}
           />

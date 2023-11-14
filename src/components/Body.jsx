@@ -9,6 +9,7 @@ export default function Body() {
     id: idT,
     task: "",
     date: null,
+    duration: null,
     statut: false,
   });
   const [tasksList, setTasksList] = useState(() => {
@@ -17,11 +18,12 @@ export default function Body() {
     return data || []
   });
 
-  const getValue = (input, dateG) => {
+  const getValue = (input, dateG, durationG) => {
     setIdT(idT + 1);
     setTask((prev) => {
-      return { ...prev, task: input, id: idT, date: dateG };
+      return { ...prev, task: input, id: idT, date: dateG, duration: durationG };
     });
+    console.log(durationG);
   };
 
   const deleteTask = (id) => {

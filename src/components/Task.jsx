@@ -1,7 +1,8 @@
 import React from 'react';
 import { AiOutlineDelete } from "react-icons/ai";
+import { GiDuration } from "react-icons/gi";
 
-export default function Task({ task, date, id, deleteTask, statut, updateStatut }) {
+export default function Task({ task, date, duration, id, deleteTask, statut, updateStatut }) {
 
     const handleChange = () => {
         updateStatut(id, statut)
@@ -28,7 +29,10 @@ export default function Task({ task, date, id, deleteTask, statut, updateStatut 
       </p>
       <p className="d-flex justify-content-around h6 flex-wrap">
         {date}{" "}
-        <span className="">{statut ? "Completed" : "Not completed yet!"}</span>
+        <span>
+          <GiDuration /> {duration}
+        </span>{" "}
+        <span>{statut ? "Completed" : "Not completed yet!"}</span>
         <button 
           className='btn btn-light'
           onClick={() => {
